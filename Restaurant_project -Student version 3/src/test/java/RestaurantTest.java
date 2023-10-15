@@ -68,4 +68,18 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    @Test
+    public void calculateOrderTotal_method_should_return_correct_total_if_items_are_provided() {
+        String[] itemNames = {"Sweet corn soup", "Vegetable lasagne"};
+        int orderTotal = restaurant.calculateOrderTotal(itemNames);
+        assertEquals(388, orderTotal);
+    }
+
+    @Test
+    public void calculateOrderTotal_method_should_return_0_if_items_array_provided_is_empty() {
+        String[] itemNames = {};
+        int orderTotal = restaurant.calculateOrderTotal(itemNames);
+        assertEquals(0, orderTotal);
+    }
 }
